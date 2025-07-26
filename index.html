@@ -32,11 +32,10 @@
     <form>
       <fieldset>
         <label for="myFile" id="dropArea">
-          <p>
-            Upload your image
-
-          </p> <input type="file" id="myFile" name="filename" accept="image/x-png, image/jpeg" style="display : none"
-            required />
+          <p>Upload your image</p>
+          <input type="file" id="myFile" name="filename" accept="image/x-png, image/jpeg"
+            style="position: absolute; opacity: 0; width: 0; height: 0;" required />
+            
           <div id="image-view"></div>
         </label>
         <p class="info">
