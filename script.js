@@ -16,6 +16,12 @@ function uploadImage() {
 
 const form = document.querySelector("form");
 
+// check if email is valid using regex
+function isValidEmail(email) {
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(email);
+}
+
 form.addEventListener("submit", (e) => {
   e.preventDefault()
 
@@ -41,6 +47,12 @@ form.addEventListener("submit", (e) => {
     alert('Image is too big. Max 500kb.')
     return
   }
+
+  if (!isValidEmail(email)) {
+    alert("Dit is geen geldig e-mailadres.");
+    return
+  }
+  
 
   // Convert file to base64
   const reader = new FileReader()

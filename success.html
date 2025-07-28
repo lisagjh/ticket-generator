@@ -30,6 +30,7 @@
       </section>
 
       <section class="card">
+        <div class="glare"></div>
         <div class="wrapper-left">
           <div class="card-top">
             <div class="logo">
@@ -87,6 +88,53 @@
       githubSpan.textContent = github
       avatarImg.src = image
     })
+
+    // card hover effect
+    const card = document.querySelector('.card');
+
+    if (card) {
+      const glare = card.querySelector('.glare');
+
+      // mousemove on card
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateLimit = 10;
+
+        // card rotation
+        const rotateY = ((x - centerX) / centerX) * rotateLimit;
+        const rotateX = ((centerY - y) / centerY) * rotateLimit;
+
+        // set card rotation
+        card.style.setProperty('--rotateX', `${rotateX}deg`);
+        card.style.setProperty('--rotateY', `${rotateY}deg`);
+
+        // card glare effect
+        const percentX = (x / rect.width) * 100;
+        const percentY = (y / rect.height) * 100;
+
+        // set glare position
+        card.style.setProperty('--glare-x', `${percentX}%`);
+        card.style.setProperty('--glare-y', `${percentY}%`);
+        card.style.setProperty('--glare-opacity', '.5');
+      });
+
+      // reset card on mouse leave
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--rotateX', '0deg');
+        card.style.setProperty('--rotateY', '0deg');
+        card.style.setProperty('--glare-x', '50%');
+        card.style.setProperty('--glare-y', '50%');
+        card.style.setProperty('--glare-opacity', '0');
+
+      });
+    }
+
+
   </script>
 
 </body>
