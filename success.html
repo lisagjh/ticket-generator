@@ -124,17 +124,19 @@
       });
 
       // reset card on mouse leave
+      let leaveTimeout;
       card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--rotateX', '0deg');
-        card.style.setProperty('--rotateY', '0deg');
-        card.style.setProperty('--glare-x', '50%');
-        card.style.setProperty('--glare-y', '50%');
-        card.style.setProperty('--glare-opacity', '0');
-
+        clearTimeout(leaveTimeout);
+        leaveTimeout = setTimeout(() => {
+          card.style.setProperty('--rotateX', '0deg');
+          card.style.setProperty('--rotateY', '0deg');
+          card.style.setProperty('--glare-x', '50%');
+          card.style.setProperty('--glare-y', '50%');
+          card.style.setProperty('--glare-opacity', '0');
+        }, 200);
       });
+
     }
-
-
   </script>
 
 </body>
