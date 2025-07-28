@@ -32,11 +32,13 @@ Users should be able to:
 
 ### Built With
 
-- Semantic HTML5 markup
-- CSS Custom Properties
-- Flexbox & CSS Grid
-- Mobile-First Workflow
-- Vanilla JavaScript
+- HTML
+- CSS
+  - custom properties, altered by JS
+- JavaScript
+- Mobile First Development
+
+I decided to go back to plain old HTML, CSS and JS for this. I have gotten so used to working with frameworks, that I thought it was a good idea to go back
 
 ### What I Learned
 
@@ -44,7 +46,7 @@ This project was a great opportunity to work with vanilla JavaScript for form ha
 
 #### Client-Side Form Validation
 
-I implemented comprehensive client-side validation using JavaScript. The form checks for empty fields, validates the email format with a regular expression, and inspects the uploaded file's type and size. Invalid submissions are prevented, and users are alerted to the specific errors.
+I added validation using JavaScript. The form checks for empty fields, validates the email format with a regular expression, and inspects the uploaded file's type and size. Invalid submissions are prevented, and users are alerted to the specific errors.
 
 ```javascript
 // check if email is valid using regex
