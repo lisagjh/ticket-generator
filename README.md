@@ -2,6 +2,8 @@
 
 This is a solution to the [Conference ticket generator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w). This project allows users to fill out a form with their details and generate a personalized conference ticket.
 
+<img width="1470" height="917" alt="Preview of generated ticket" src="https://github.com/user-attachments/assets/c237cf7e-6c6f-4502-a62c-5842db378f89" />
+
 ## Table of Contents
 
 - [Overview](#overview)
