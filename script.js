@@ -14,38 +14,49 @@ function uploadImage() {
   imageView.style.backgroundImage = `url(${imgLink})`
 }
 
-// form submit
-const form = document.querySelector("form")
+const form = document.querySelector("form");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault()
 
-  // get values
   const firstName = document.querySelector("#firstName").value.trim()
   const lastName = document.querySelector("#lastName").value.trim()
   const email = document.querySelector("#email").value.trim()
   const file = inputFile.files[0]
+  const github = document.querySelector("#github").value
 
-  // validation
   if (!firstName || !lastName || !email || !file) {
     alert("Please fill in all fields")
     return
   }
 
-  // check file type
   const allowedTypes = ['image/jpeg', 'image/png']
   if (!allowedTypes.includes(file.type)) {
     alert('Only JPG and PNG are allowed.')
     return
   }
 
-  // check file size
-  const maxFileSize = 500 * 1024 // 500kb
+  const maxFileSize = 500 * 1024
   if (file.size > maxFileSize) {
     alert('Image is too big. Max 500kb.')
     return
   }
 
-  // go to success page
-  window.location.href = 'success.html'
+  // Convert file to base64
+  const reader = new FileReader()
+  reader.onload = function (event) {
+    const base64Image = event.target.result
+
+    // Opslaan in sessionStorage
+    sessionStorage.setItem("userFirstName", firstName)
+    sessionStorage.setItem("userLastName", lastName)
+    sessionStorage.setItem("userEmail", email)
+    sessionStorage.setItem("userGithub", github)
+    sessionStorage.setItem("userImage", base64Image)
+
+    // Doorsturen
+    window.location.href = 'success.html'
+  }
+
+  reader.readAsDataURL(file)
 })

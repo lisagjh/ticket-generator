@@ -51,7 +51,7 @@ main {
     flex-direction: column;
     padding: 1rem;
     gap: 2rem;
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
 
     background-image: url(/assets/images/pattern-lines.svg);
@@ -86,22 +86,6 @@ button {
         gap: 1rem;
     }
 
-    .logo {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-
-        p {
-            font-weight: bold;
-        }
-
-        img {
-            width: 1.25rem;
-            height: 1.25rem;
-        }
-    }
-
     &::after {
         content: "";
         position: absolute;
@@ -113,6 +97,22 @@ button {
         background-position: top center;
         background-size: contain;
         background-repeat: no-repeat;
+    }
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+        font-weight: bold;
+    }
+
+    img {
+        width: 1.25rem;
+        height: 1.25rem;
     }
 }
 
@@ -246,4 +246,95 @@ form button {
     cursor: pointer;
     border-radius: 0.5rem;
     width: 100%;
+}
+
+/* success.html specific */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.congrats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    text-wrap: balance;
+    
+    & div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+h1 .name {
+    background: -webkit-linear-gradient(0deg,var(--gradient-text-start), var(--gradient-text-end), var(--gradient-text-start), var(--gradient-text-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.email {
+    color: var(--orange-500);
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--opacity-20);
+    border: 1px solid var(--neutral-500);
+    position: relative;
+
+    &::before {
+        position: absolute;
+        top: 0rem;
+        right: 25%;
+        content: "";
+        width: 0.5rem;
+        height: .5rem;
+        border-radius: 50%;
+        background-color: transparent;
+        box-shadow: 0 5px 0  var(--neutral-900);
+        border-bottom: 1px solid red;
+    }
+}
+
+
+
+.wrapper-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-owner {
+    display: grid;
+    grid-template-areas: 
+    "avatar name"
+    "avatar github";
+    gap: 0.5rem;
+
+    & img.avatar {
+        grid-area: avatar;
+        width: 4rem;
+        height: 4rem;
+        object-fit: cover;
+        border-radius: .5rem;
+    }
+
+    & h3.name {
+        grid-area: name;
+    }
+
+    & p.github {
+        grid-area: github;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }

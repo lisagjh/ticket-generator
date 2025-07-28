@@ -8,31 +8,85 @@
 </head>
 
 <body>
-  <main>
+  <main class="success">
+    <div class="wrapper">
 
-    <h1>Congrats, <span id="name">Name</span>! Your ticket is ready</h1>
-    <p>We have send the ticket to <span id="email">email</span> and will send updates in the run up to the event.</p>
-
-    <section class="card">
       <div class="logo">
-        <img src="/assets/images/logo-mark.svg" alt="">
-        <h2>Coding Conf</h2>
+        <img src="assets/images/logo-mark.svg" alt="logo">
+        <p>Coding Conf</p>
       </div>
-      <p>September 30, 2025 / Amsterdam, NL</p>
 
-      <div>
-        <img src="" alt="" id="avatar">
-        <h3><span id="firstName">First</span> <span id="lastName">Last</span></h3>
-        <p>
-          <img src="/assets/images/icon-github.svg" alt="">
-          <span id="github"></span>
-        </p>
-      </div>
-    </section>
+      <section class="congrats">
+        <div class="congrats">
+          <h1>Congrats, <br>
+            <span id="name" class="name">Name</span>!
+          </h1>
+          <p>Your ticket is ready.
+          </p>
+        </div>
 
+        <p>We've emailed your ticket to <span id="email" class="email">email</span> and will send you updates about the
+          event.</p>
+      </section>
+
+      <section class="card">
+        <div class="wrapper-left">
+          <div class="logo">
+            <img src="/assets/images/logo-mark.svg" alt="">
+            <h2>Coding Conf</h2>
+          </div>
+
+          <p class="date">Jan 31, 2025 / Austin, TX</p>
+
+          <div class="ticket-owner">
+            <img src="" alt="" id="avatar" class="avatar">
+            <h3 class="name"><span id="firstName">First</span> <span id="lastName">Last</span></h3>
+            <p class="github">
+              <img src="/assets/images/icon-github.svg" alt="">
+              <span id="github"></span>
+            </p>
+          </div>
+        </div>
+        <div class="wrapper-right">
+          <p class="ticket-nr">
+            #01976
+          </p>
+        </div>
+      </section>
+    </div>
 
     <p>Go back to the <a href="index.html">home page</a></p>
   </main>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const nameSpan = document.querySelector("span#name")
+      const emailSpan = document.querySelector("span#email")
+      const firstNameSpan = document.querySelector("span#firstName")
+      const lastNameSpan = document.querySelector("span#lastName")
+      const githubSpan = document.querySelector("span#github")
+      const avatarImg = document.querySelector("img#avatar")
+
+      const firstName = sessionStorage.getItem("userFirstName")
+      const lastName = sessionStorage.getItem("userLastName")
+      const email = sessionStorage.getItem("userEmail")
+      const github = sessionStorage.getItem("userGithub")
+      const image = sessionStorage.getItem("userImage")
+
+      if (!firstName || !lastName || !email || !image) {
+        alert("Geen data gevonden.")
+        return
+      }
+
+      nameSpan.textContent = `${firstName} ${lastName}`
+      emailSpan.textContent = email
+      firstNameSpan.textContent = firstName
+      lastNameSpan.textContent = lastName
+      githubSpan.textContent = github
+      avatarImg.src = image
+    })
+  </script>
+
 </body>
 
 </html>
