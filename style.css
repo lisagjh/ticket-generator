@@ -24,6 +24,7 @@
     --opacity-05: hsl(245, 19%, 35%, 0.05);
     --opacity-20: hsl(245, 15%, 85%, 0.20);
     --opacity-30: hsl(245, 15%, 85%, 0.30);
+    --orange-05: hsl(7, 88%, 67%, 0.75);
   }
   
 
@@ -490,7 +491,7 @@ span.email {
     mask-size: contain;
     background: radial-gradient(
       circle at var(--glare-x) var(--glare-y),
-      rgba(255, 255, 255, 0.35),
+      var(--orange-05),
       transparent 60%
     );
     pointer-events: none;
